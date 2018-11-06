@@ -13,11 +13,20 @@ public class ArrayMethods{
    }
     //returns the sum of the elements in Row x of ary.
     //When x is past the last row count it as a zero. (NO indexOutOfBounds should ever occur)
-
+    public static int longest(int[][] ary){
+    int longest=ary[0].length;
+    for(int i=0;i<ary.length;i++){
+      if (ary[i].length>longest){
+        longest=ary[i].length;
+      }
+    }
+    return longest;
+  }
    public static int columnSum(int[][] ary, int x){
      int sum=0;
+     if (x>=longest(ary)) return 0;
      for (int i=0;i<ary.length;i++){
-       if (x>=ary[i].length) sum+=0;
+       if (x>=ary[i].length) return sum;
        else{
        sum+=ary[i][x];}
      }
@@ -37,7 +46,7 @@ public class ArrayMethods{
 
    public static int[] allColSums(int[][] ary){
      int[] newy= new int[ary.length];
-     for (int i =0;i<ary.length;i++){
+     for (int i =0;i<ary[i].length;i++){
        newy[i]=columnSum(ary,i);
      }
      return newy;
