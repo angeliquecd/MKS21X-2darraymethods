@@ -1,4 +1,4 @@
-public class driver{
+public class arraydriver{
   //Printing Methods
   public static String printArray(int[] ary){
     if (ary.length == 0){
@@ -79,7 +79,7 @@ public class driver{
     //--------------------------------------------------------------------//
     System.out.println("\n\n--------Testing printArray(int[][] ary)--------");
     System.out.println("magicRow--> Should print [[1, 1, 1, 1, 1, 1], [2, -2, 2, 2, -2, -2, 6], [3, 3, 6, -4, -2], [0, 10, -5, 1]]: \n" + printArray(magicRow));
-    System.out.println("magicColumn--> Should print [[8], [9, 0, 3, -1, 8], [2, 1, 2], [7, 7, 3, 9]]: \n" + printArray(magicColumn));
+    System.out.println("magicColumn--> Should print [[8], [-9, 0, 3, -1, 8], [2, 1, 2], [7, 7, 3, 9]]: \n" + printArray(magicColumn));
     //--------------------------------------------------------------------//
     System.out.println("\n\n--------Phase 1 Testing--------");
     try{
