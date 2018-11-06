@@ -45,7 +45,7 @@ public class ArrayMethods{
    //Index i of the return array contains the sum of elements in row i.
 
    public static int[] allColSums(int[][] ary){
-     int[] newy= new int[ary.length];
+     int[] newy= new int[longest(ary)];
      for (int i =0;i<ary[i].length;i++){
        newy[i]=columnSum(ary,i);
      }
