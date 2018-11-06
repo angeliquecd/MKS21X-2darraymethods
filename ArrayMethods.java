@@ -26,7 +26,7 @@ public class ArrayMethods{
      int sum=0;
      if (x>=longest(ary)) return 0;
      for (int i=0;i<ary.length;i++){
-       if (x>=ary[i].length) return sum;
+       if (x>=ary[i].length) sum+=0;
        else{
        sum+=ary[i][x];}
      }
@@ -46,7 +46,7 @@ public class ArrayMethods{
 
    public static int[] allColSums(int[][] ary){
      int[] newy= new int[longest(ary)];
-     for (int i =0;i<ary[i].length;i++){
+     for (int i =0;i<longest(ary);i++){
        newy[i]=columnSum(ary,i);
      }
      return newy;
