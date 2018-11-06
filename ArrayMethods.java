@@ -16,15 +16,17 @@ public class ArrayMethods{
    public static int columnSum(int[][] ary, int x){
      int sum=0;
      for (int i=0;i<ary.length;i++){
-       sum+=ary[i][x];
+       if (x>=ary[i].length) sum+=0;
+       else{
+       sum+=ary[i][x];}
      }
      return sum;
    }
-   *PART 2 - use prior methods where appropriate
-  */
+   //PART 2 - use prior methods where appropriate
+
   public static int[] allRowSums(int[][] ary){
     int[] newy= new int[ary.length];
-    (for int i =0;i<ary.length;i++){
+    for (int i =0;i<ary.length;i++){
       newy[i]=rowSum(ary,i);
     }
     return newy;
@@ -32,14 +34,34 @@ public class ArrayMethods{
    //returns an array of the row sums for each row of ary.
    //Index i of the return array contains the sum of elements in row i.
 
-   public static int[] allColSums(int[][] ary){}
-   //Returns an array with the column sum of each column of ary.
-   //When a row is not long enough to reach the column count it as a zero. (NO indexOutOfBounds should ever occur)
-   //Index i of the return array contains the sum of elements in column i, ignoring any rows that are too short.
-   //The length of the returned array should be the length of the LONGEST array in ary.
-
-
-
+   public static int[] allColSums(int[][] ary){
+     int[] newy= new int[ary.length];
+     for (int i =0;i<ary.length;i++){
+       newy[i]=columnSum(ary,i);
+     }
+     return newy;
    }
-    //returns the sum of the elements in Column x of ary (careful with rows of different lengths!).
-    //When a row is not long enough to reach the column count it as a zero. (NO indexOutOfBounds should ever occur)
+   /*
+*PART 3 - use prior methods where appropriate
+*/
+public static boolean isRowMagic(int[][] ary){
+  int early=rowSum(ary,0);
+  for (int i=1;i<ary.length;i++){
+    if (early!=rowSum(ary,i)) return false;
+    early=rowSum(ary,i);
+  }
+  return true;
+}
+  //checks if the array is row-magic (this means that every row has the same row sum).
+
+public static boolean isColumnMagic(int[][] ary){
+  int early=columnSum(ary,0);
+  for (int i=1;i<ary.length;i++){
+    if (early!=columnSum(ary,i)) return false;
+    early=columnSum(ary,i);
+  }
+  return true;
+}
+ //checks if the array is column-magic (this means that every column has the same column sum).
+
+}
